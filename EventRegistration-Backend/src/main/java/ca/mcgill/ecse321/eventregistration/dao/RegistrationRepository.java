@@ -3,11 +3,13 @@ package ca.mcgill.ecse321.eventregistration.dao;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import ca.mcgill.ecse321.eventregistration.model.Event;
 import ca.mcgill.ecse321.eventregistration.model.Person;
 import ca.mcgill.ecse321.eventregistration.model.Registration;
 
+@RepositoryRestResource(collectionResourceRel = "registration_data", path = "registration_data")
 public interface RegistrationRepository extends CrudRepository<Registration, Integer> {
 
 	List<Registration> findByPerson(Person personName);
